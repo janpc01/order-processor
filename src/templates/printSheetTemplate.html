@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0.5in;
+        }
+        .print-sheet {
+            width: 8.5in;
+            height: 11in;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 0.25in;
+        }
+        .card-slot {
+            width: 2.5in;
+            height: 3.5in;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-sheet">
+        {{#each cards}}
+        <div class="card-slot">{{{this}}}</div>
+        {{/each}}
+    </div>
+</body>
+</html>

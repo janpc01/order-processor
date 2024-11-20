@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .shipping-label {
+            border: 2px solid black;
+            padding: 20px;
+            width: 4in;
+            height: 6in;
+        }
+        .address {
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .barcode {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .order-id {
+            font-size: 12px;
+            text-align: right;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="shipping-label">
+        <div class="from">
+            <strong>From:</strong><br>
+            Sports Cards Store<br>
+            123 Business St<br>
+            Toronto, ON M5V 2T6<br>
+            Canada
+        </div>
+        
+        <div class="address">
+            <strong>Ship To:</strong><br>
+            {{fullName}}<br>
+            {{addressLine1}}<br>
+            {{#if addressLine2}}{{addressLine2}}<br>{{/if}}
+            {{city}}, {{state}} {{postalCode}}<br>
+            {{country}}<br>
+            Phone: {{phone}}
+        </div>
+
+        <div class="order-id">
+            Order ID: {{orderId}}
+        </div>
+    </div>
+</body>
+</html>

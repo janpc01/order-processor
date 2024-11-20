@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .card {
+            width: 2.5in;
+            height: 3.5in;
+            border: 1px solid black;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .card-image {
+            width: 2.3in;
+            height: 2.3in;
+            object-fit: cover;
+        }
+        .card-details {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        .card-name {
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img class="card-image" src="{{image}}" alt="{{name}}">
+        <div class="card-details">
+            <div class="card-name">{{name}}</div>
+            <div>Belt Rank: {{beltRank}}</div>
+            <div>Achievement: {{achievement}}</div>
+            <div>Club: {{clubName}}</div>
+        </div>
+    </div>
+</body>
+</html>
