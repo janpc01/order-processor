@@ -1,5 +1,8 @@
 const puppeteer = require('puppeteer');
-const Handlebars = require('handlebars');
+// const Handlebars = require('handlebars').create();
+// console.log("This is the Handlebars object:", Handlebars);
+// console.log("allowProtoPropertiesByDefault:", Handlebars.allowProtoPropertiesByDefault);
+// console.log("allowProtoMethodsByDefault:", Handlebars.allowProtoMethodsByDefault);
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -9,17 +12,24 @@ async function generateShippingLabel(shippingAddress, orderId) {
         const templatePath = path.join(__dirname, '../templates/shippingLabelTemplate.html');
         const templateContent = await fs.readFile(templatePath, 'utf8');
         
-        // Compile the template
-        const template = Handlebars.compile(templateContent);
-        
-        // Prepare the data
-        const data = {
-            ...shippingAddress,
-            orderId
+        // Transform address data to plain object
+        const safeData = {
+            fullName: shippingAddress.fullName,
+            addressLine1: shippingAddress.addressLine1,
+            addressLine2: shippingAddress.addressLine2,
+            city: shippingAddress.city,
+            state: shippingAddress.state,
+            postalCode: shippingAddress.postalCode,
+            country: shippingAddress.country,
+            phone: shippingAddress.phone,
+            orderId: orderId.toString()
         };
         
+        // Compile the template
+        // const template = Handlebars.compile(templateContent);
+        
         // Generate HTML
-        const html = template(data);
+        // const html = template(safeData);
         
         // Launch browser
         const browser = await puppeteer.launch({
